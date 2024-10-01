@@ -1,9 +1,9 @@
-name: Build and Publish
+name: Build Project
 
 on:
   push:
     branches:
-      - master  # 你可以指定要监听的分支
+      - main  # 注意修改为你的分支名称
 
 jobs:
   build:
@@ -20,12 +20,8 @@ jobs:
         run: |
           msbuild TreeGrid.sln /p:Configuration=Release  # 编译解决方案
 
-      - name: Publish
-        run: |
-          dotnet publish TreeGrid/TreeGrid.csproj -c Release -o ./publish  # 发布到指定目录
-
-      - name: Upload Release Artifacts
-        uses: actions/upload-artifact@v3  # 更新到最新的版本
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3  # 上传生成的文件
         with:
-          name: TreeGrid-release
-          path: ./publish  # 上传发布的内容
+          name: TreeGrid-executable
+          path: TreeGrid/bin/Release/TreeGrid.exe  # 指定需要上传的可执行文件路径
