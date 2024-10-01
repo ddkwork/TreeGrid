@@ -25,7 +25,7 @@ jobs:
           dotnet publish TreeGrid/TreeGrid.csproj -c Release -o ./publish  # 发布到指定目录
 
       - name: Upload Release Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # 更新到最新的版本
         with:
           name: TreeGrid-release
           path: ./publish  # 上传发布的内容
