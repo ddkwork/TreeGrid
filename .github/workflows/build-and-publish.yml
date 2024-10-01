@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   push:
     branches:
-      - main  # 你可以指定要监听的分支
+      - master  # 你可以指定要监听的分支
 
 jobs:
   build:
